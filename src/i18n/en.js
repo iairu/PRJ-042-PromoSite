@@ -9,14 +9,14 @@ export default {
 
   site: {
     name: 'NightJar.Gift', // brand in titles and metadata
-    brand: 'NightJar', // brand in the header, footer and breadcrumbs
-    brandTail: '.Gift', // light-weight, directly after the brand; hidden on phones
-    brandSub: '', // optional small second line under the brand; hidden on phones
+    brand: 'NightJar', // brand in the footer and breadcrumbs
+    brandTail: '.Gift', // light-weight, directly after the brand in the footer
+    brandSub: '', // optional small second line after the brand in the footer
     tagline: 'The bird you hear before you see.',
     description:
       'NightJar is a CNC-carved wooden European nightjar with a button on its back. Hold it and the bird sings its churring night call; let go and it sleeps.',
     course: 'Systems Thinking in IT and Digital Fabrication (STHDF)',
-    updated: '5 October 2026',
+    updated: '25 November 2026',
   },
 
   ui: {
@@ -63,7 +63,7 @@ export default {
       singing: 'Singing…',
       preorder: 'Pre-order · opening soon',
       how: 'How it works',
-      fine: 'Board v15 designed and simulated; the base parts are ordered, the whistle parts are next. The sample is a synthesised churr, not yet the final recording.',
+      fine: 'A breadboard and a 3D-printed body exist; whistle detection moves to a micro:bit V2 and the wood is carved at SmartLab. The sample is a synthesised churr, not yet the final recording.',
     },
     birdAria: 'Silhouette of the carved nightjar, seen from the side',
     model: {
@@ -102,12 +102,12 @@ export default {
 
   nav: [
     { label: 'Home', blurb: 'Meet the bird', sections: ['Highlights', 'How it sings', 'Turn it around', 'Breadboard, schematic, PCB', 'Field notes'] },
-    { label: 'The Bird', blurb: 'Shape, wood and CNC', sections: ['Specifications', 'Wireframes', 'Pockets and depths', 'Machining', 'The wooden button', 'Wood'] },
-    { label: 'Electronics', blurb: 'Board v15', sections: ['The circuit', 'Schematic, breadboard, PCB', 'Design choices', 'Fifteen board versions', 'Safety', 'Verification'] },
+    { label: 'The Bird', blurb: 'Shape, wood and CNC', sections: ['Specifications', '3D print', 'Wireframes', 'Pockets and depths', 'Machining', 'The wooden button', 'Wood'] },
+    { label: 'Electronics', blurb: 'Prototypes and board v15', sections: ['Two prototypes', 'The circuit (v15)', 'Schematic, breadboard, PCB', 'Design choices', 'Fifteen board versions', 'Safety', 'Verification'] },
     { label: 'Parts', blurb: 'What goes inside', sections: ['The kit', 'Electronics (ordered)', 'Wood and workshop', 'v15 additions'] },
     { label: 'Roadmap', blurb: 'Where the build stands', sections: ['Status', 'Milestones'] },
     { label: 'Pre-order', blurb: 'Opening soon', pill: 'Soon', sections: ['Pre-order form', 'Questions'] },
-    { label: 'About', blurb: 'The student behind it', sections: ['Ondrej Špánik', 'The course', 'Elsewhere'] },
+    { label: 'About', blurb: 'The students behind it', sections: ['Ondrej Špánik', 'The course', 'Elsewhere'] },
   ],
 
   external: [
@@ -119,8 +119,8 @@ export default {
   highlights: [
     { title: 'Hold, whistle, and it sings', text: 'The button sits in the battery line. While it is held the bird listens, and a whistle makes it sing; release it and nothing draws current. There is no power switch to forget.' },
     { title: 'Two halves of carved spruce', text: 'A stylised nightjar, 313 mm long, carved on a 3-axis CNC from a planed spruce beam as two mirrored halves and joined with hidden beech dowels. The seam can be pried open for service.' },
-    { title: 'It answers a whistle', text: 'Since version 9 an ESP32-S3 listens through a small microphone. When it hears a steady whistle it switches the sound module on; the microphone is off while the bird sings, so it never answers itself.' },
-    { title: 'Charges through the tail', text: 'A 500 mAh LiPo with its own protection board, charged over micro-USB through a channel under the tail. The charge current is cut to 0.36 A to keep heat inside the wood low.' },
+    { title: 'It answers a whistle', text: 'While the button is held, the bird listens for a whistle and answers it. Two setups were built for this: an ESP32-S3 on a breadboard with a separate microphone and amplifier, and a BBC micro:bit V2 with both on board, which is logistically cheaper.' },
+    { title: 'USB through the flank', text: 'A hole in the side of the body takes a USB cable to the board, for charging and data. In the ESP32-S3 build it charges a 500 mAh LiPo at about 100 mA through the XIAO.' },
     { title: 'Parts from Slovak and Czech shops', text: 'Board v15 uses only parts sold in Slovakia and Czechia: the EUR 17.60 of v7 parts already ordered, plus about EUR 20.55 for the whistle and for charging with the cell connected (ESP32-S3 board included).' },
     { title: 'Documented in the open', text: 'Fifteen board versions, every dead end and every fix is written down, with schematics, breadboards, PCBs and a parametric CAD model you can rebuild from a script.' },
   ],
@@ -193,20 +193,20 @@ export default {
     { date: '2 Nov 2026', title: 'First sound from a breadboard', text: 'The circuit plays the churr; standby current measured.' },
     { date: '16 Nov 2026', title: 'Spruce prototype carved', text: 'First bird milled on the CNC from the spruce beam and glued.' },
     { date: '30 Nov 2026', title: 'Pitch presentation', text: 'Five minutes, starting with the sound.' },
-    { date: '7 Dec 2026', title: 'Final bird', text: 'Final piece carved from spruce, stained, waxed and lacquered; button turned or 3D-printed.' },
+    { date: '7 Dec 2026', title: 'Final bird', text: 'Final piece carved from spruce and finished with a walnut thin-layer glaze with linseed oil and wax; button turned or 3D-printed.' },
     { date: '14 Dec 2026', title: 'Testing and documentation', text: 'Sound, standby draw, battery access and the glued seam tested; KNIFE published.' },
     { date: 'Jan 2027', title: 'Final presentation', text: 'Final presentation and reflection.' },
   ],
 
   status: [
-    ['Electronics design', 'Board v15 designed and simulated, PCB checked (14 of 14 nets); not built yet'],
-    ['Electronics parts', 'v7 parts ordered; the v15 additions (ESP32-S3, microphone, two MOSFETs, regulator, diode, fuse) are next'],
-    ['3D model and enclosure', 'Nightjar v2 fitted to a spruce beam, STL files, build guide, CNC operator consulted'],
-    ['Wood', 'Spruce beam 60 x 120 mm chosen (Hornbach); not bought yet'],
-    ['CNC carving', 'Not started'],
-    ['Assembly and finishing', 'Not started'],
-    ['Wooden button', 'Not started'],
-    ['Documentation', 'Docusaurus site, fifteen board versions logged'],
+    ['Electronics design', 'Two setups: a XIAO ESP32-S3 breadboard and a micro:bit V2. The audio moves to the micro:bit; board v15 and its PCB stay as design documentation'],
+    ['Electronics parts', 'Breadboard parts and a micro:bit V2 in hand; the rest of the micro:bit is left unused'],
+    ['3D model and enclosure', 'Body 3D-printed at 1.2x real size, with a USB charging and data hole, power button peg, and speaker and microphone holes'],
+    ['Wood', 'Own spruce beam 60 x 120 mm, from OBI or Hornbach'],
+    ['CNC carving', 'In the hands of the SmartLab employees, on the SmartLab CNC'],
+    ['Assembly and finishing', 'Not started on wood; walnut thin-layer glaze with linseed oil and wax planned'],
+    ['Wooden button', 'Power button peg modelled for the 3D print; wooden one not started'],
+    ['Documentation', 'Docusaurus site: fifteen board versions, the breadboard, the 3D print and the micro:bit V2 setup'],
   ],
 
   versions: [
@@ -277,7 +277,7 @@ export default {
   },
 
   faq: [
-    ['Can I order one now?', 'Not yet. The form on this page is switched off. The first prototype has not been carved, and the price shown is a target, not an offer.'],
+    ['Can I order one now?', 'Not yet. The form on this page is switched off. The body has been 3D-printed, but the wooden bird is not finished, and the price shown is a target, not an offer.'],
     ['What will it cost?', 'The working hypothesis from the pitch is EUR 89 to 129 per bird, made to order: about EUR 35 of material, EUR 17.60 of electronics and roughly four hours of work including CNC time. This will be confirmed once the prototype is built.'],
     ['What does it sound like?', 'The sample on this site is a synthesised churr used while the circuit is developed. The final recording has not been chosen; it will be a freely licensed field recording of a European nightjar.'],
     ['How long does the battery last?', 'Not measured yet. Between presses the sound module is unpowered, so the drain is the cell protection and charger leakage. Measuring it on the built bird is a planned test.'],
@@ -324,8 +324,8 @@ export default {
       gallery: { eyebrow: 'Breadboard, schematic, PCB', title: 'The same circuit, three ways.', lead: 'Version 14 of the board, as drawn in Fritzing. Every part carries a simulation model, so the breadboard runs in the simulator, speaker sound included.', more: 'See all the board versions' },
       notes: { eyebrow: 'Field notes', title: 'A bird known by its voice.' },
       timeline: {
-        eyebrow: 'Roadmap', title: 'Honest status: designed and ordered, not yet carved.',
-        lead: '{done} of {total} milestones reached. The electronics are designed and simulated and the base parts ordered; the wood is chosen; the first cuts come next.',
+        eyebrow: 'Roadmap', title: 'Honest status: printed, and on its way into wood.',
+        lead: '{done} of {total} milestones marked reached. The body is 3D-printed, whistle detection moves to a micro:bit V2, and carving is with the SmartLab employees.',
         more: 'Full status',
       },
       band: {
@@ -341,8 +341,20 @@ export default {
       title: 'The Bird',
       description: 'The NightJar bird: a stylised perching bird carved from two spruce halves on a 3-axis CNC. Dimensions, wireframes, pockets, machining and wood.',
       hero: { eyebrow: 'Shape, wood and CNC', title: 'A perching nightjar, <em>carved in two halves.</em>', lead: 'The body is a stylised nightjar: flat-headed, long-tailed, sitting low along its branch. It is split down the middle so that every cavity can be cut from the seam, then glued around the electronics.' },
-      specs: { eyebrow: 'Specifications', title: '313 millimetres of spruce.', lead: 'The numbers below come straight from the script that turns the sculpted model into the CNC files. Change a parameter or the beam, rerun it, and the walls, pockets and fit checks are recomputed.', note: '<b>Prototype.</b> Nothing has been machined yet. These are design figures from the model, not measurements of a finished bird.' },
+      specs: { eyebrow: 'Specifications', title: '313 millimetres of spruce.', lead: 'The numbers below come straight from the script that turns the sculpted model into the CNC files. Change a parameter or the beam, rerun it, and the walls, pockets and fit checks are recomputed.', note: '<b>Prototype.</b> These are design figures from the v16FULL (ESP32-S3) model, not measurements of a finished bird. The micro:bit V2 has its own enclosure version.' },
       model: { eyebrow: '3D model', title: 'Drag it. Spin it. Look for the seam.', lead: 'The button on the back is its own part, in a darker wood.' },
+      print: {
+        eyebrow: '3D print', title: 'First in plastic.',
+        lead: 'Before any wood is cut, the body is 3D-printed to check that everything fits and can be reached.',
+        bullets: [
+          '<b>USB hole</b> in the flank, for charging and data.',
+          '<b>Power button peg</b> on the back: press it and the bird listens.',
+          '<b>Speaker and microphone holes.</b>',
+          '<b>Chonk!</b> 1.2x real size.',
+        ],
+        figAlt: 'Render of the bird with hand-drawn notes: press me at the button on its back, USB at the hole in the flank, and a speaker symbol at the bill',
+        figCap: '<b>Where things are.</b> The button on the back, the USB hole and the grille in the flank.',
+      },
       wire: {
         eyebrow: 'Wireframes', title: 'Inside the carving.',
         lead: 'Drawn from the same STL files as the 3D view, as stacks of cross-sections. Blue is the wood, orange is the button, and in the exploded view the electronics sit between the halves.',
@@ -366,8 +378,12 @@ export default {
           '<b>Flip.</b> Turn the blank onto the registration pins. The seam face is now down and flat on the spoilboard.',
           '<b>Outside.</b> Rough leaving 0.5 mm, finish with a 3 mm ball-nose at a 0.2 mm stepover. Spruce tears out: sharp cutters, and a sanding sealer before the last pass. Leave tabs or an onion skin at the seam.',
           '<b>Mirror, but not quite.</b> The right half mirrors the left on the outside, but its pockets differ (speaker left, LiPo right), so each has its own toolpath.',
-          '<b>Finish.</b> Cut the tabs and sand. Then red stain, wax and lacquer on the outside, as the CNC operator recommends, never in the pockets, grille holes or microphone port.',
+          '<b>Finish.</b> Cut the tabs and sand. Then a walnut thin-layer glaze with linseed oil and wax (SlovLux), brushed on the outside, never in the pockets, grille holes or microphone port.',
         ],
+      },
+      cnc: {
+        alt: 'The large CNC router at SmartLab, with hand-written notes and an inset photo of five cutting bits',
+        cap: '<b>Where it is carved.</b> SmartLab employees do the carving on this CNC, using our own wood from OBI or Hornbach. Inset: the bits.',
       },
       button: {
         eyebrow: 'The wooden button', title: 'A small dome with a square stem.',
@@ -384,7 +400,7 @@ export default {
       wood: {
         eyebrow: 'Wood', title: 'Spruce, from a planed beam.',
         lead: 'OBI and Hornbach sell only softwood in beams this thick; their hardwood comes in thin strips. Planed, kiln-dried spruce (KVH, about 15 % moisture) is on the CNC operator\'s list of suitable woods, and the bird is sized to fit a 60 x 120 mm beam. Prices were read on 14 October 2026, include VAT and exclude shipping.',
-        note: 'KVH can be finger-jointed: cut the blanks from stretches without a joint. The beam is about ±1 mm, so measure it before setting up the CNC.',
+        note: 'KVH can be finger-jointed: cut the blanks from stretches without a joint. The beam is about ±1 mm, so measure it before setting up the CNC. The November 2026 presentation also shows a KVH NSi spruce beam 60 x 120 mm from EUR 5.05 for 1 m.',
         viewAt: 'View at {shop}',
       },
     },
@@ -393,6 +409,16 @@ export default {
       title: 'Electronics',
       description: 'NightJar electronics, board v15: a push button in the battery line, an ESP32-S3 that listens for a whistle, a DFPlayer Pro, a small LiPo and a micro-USB charger. Schematic, breadboard, PCB, design choices and verification.',
       hero: { eyebrow: 'Board v15', title: 'A button, a whistle, a <em>sound module.</em>', lead: 'Fifteen board versions. The button still cuts the power, so nothing runs between presses; since v9 an ESP32-S3 listens through a microphone and lets the bird sing only when you whistle. Since v14 every part is sold in Slovakia and Czechia, and v15 charges while the cell stays connected.' },
+      prototypes: {
+        eyebrow: 'Two prototypes', title: 'One whistle, two ways to hear it.',
+        lead: 'The bird was first wired from separate modules, then simplified to one board. Both listen for a whistle while the button is held. The carved bird follows the micro:bit V2 path.',
+        espTitle: 'ESP32-S3 dev board', espText: 'A Seeed XIAO ESP32-S3, a microphone, an amplifier, resistors, a speaker and a button on a breadboard. It detected real whistles until the microphone stopped delivering data. More expensive, due to logistics.',
+        espAlt: 'Breadboard with labels: Seeed XIAO ESP32-S3, push button, amplifier, resistors, microphone, speaker and a spare round display', espCap: '<b>ESP32-S3 setup.</b> The spare display only checks that the power is stable.',
+        mbTitle: 'BBC micro:bit V2', mbText: 'Microphone, speaker, power button, USB and battery connector are already on one board, so there is nothing to wire between them. Its other components are left unused, and it is still logistically cheaper.',
+        mbAlt: 'A micro:bit V2 held in front of the green 3D-printed body, with labels: power, battery, USB, mic and speaker', mbCap: '<b>micro:bit V2 setup.</b> Its USB port lines up with the hole in the printed body.',
+        espLink: 'Why the audio moved: KNIFE-019', mbLink: 'micro:bit V2 setup: KNIFE-021',
+        note: 'The rest of this page documents board v15, the earlier ESP32-S3 and DFPlayer Pro design.',
+      },
       circuit: {
         eyebrow: 'The circuit', title: 'Nothing is on until you press, and nothing sings until you whistle.',
         bullets: [
@@ -546,9 +572,9 @@ export default {
 
     roadmap: {
       title: 'Roadmap',
-      description: 'Where the NightJar build stands: electronics designed and ordered, enclosure modelled, wood chosen, CNC carving next. Milestones from October 2026 to January 2027.',
-      hero: { eyebrow: 'Where the build stands', title: 'Designed and ordered. <em>Not yet carved.</em>', lead: 'An honest picture, updated as things happen. The plan runs from the project\'s approval on 5 October 2026 to the final presentation in January 2027.' },
-      status: { eyebrow: 'Status', title: 'What exists today.', asOf: 'As of {date}.', cols: ['Area', 'State', 'Notes'], note: '<b>Not yet true:</b> there is no physical bird. The first sound from a real breadboard is the target of milestone M3, and no battery life or loudness figures have been measured.' },
+      description: 'Where the NightJar build stands: body 3D-printed, whistle detection on a micro:bit V2, carving at SmartLab. Milestones from October 2026 to January 2027.',
+      hero: { eyebrow: 'Where the build stands', title: 'Printed in plastic. <em>Next, in wood.</em>', lead: 'An honest picture, updated as things happen. The plan runs from the project\'s approval on 5 October 2026 to the final presentation in January 2027.' },
+      status: { eyebrow: 'Status', title: 'What exists today.', asOf: 'As of {date}.', cols: ['Area', 'State', 'Notes'], note: '<b>Not yet true:</b> there is no finished wooden bird, only a 3D-printed one, and no battery life or loudness figures have been measured.' },
       milestones: { eyebrow: 'Milestones', title: 'Eight steps to a singing bird.', docs: 'Full project documentation' },
     },
 
@@ -563,7 +589,7 @@ export default {
       mailSubject: 'NightJar pre-order interest',
       legend: 'Pre-order details',
       wood: 'Wood',
-      beech: 'Spruce', beechNote: 'Planed beam, red stain, wax and lacquer. The current design.',
+      beech: 'Spruce', beechNote: 'Planed beam, walnut glaze with linseed oil and wax. The current design.',
       linden: 'Linden', lindenNote: 'Soft and pale. On request, from a thicker blank.',
       quantity: 'Quantity',
       engraving: 'Dedication engraving', optional: '(optional)', engravingPh: 'e.g. For Jana, summer 2027',
@@ -583,7 +609,7 @@ export default {
     about: {
       title: 'About',
       description: 'Ondrej Špánik, software engineering student at FIIT STU in Bratislava, and the maker of NightJar. Background, projects, links and the course behind the project.',
-      hero: { eyebrow: 'The student behind it', title: 'One person, <em>one bird.</em>', lead: 'NightJar is an individual project from the course Systems Thinking in IT and Digital Fabrication at FIIT STU: everything from CAD to the wooden button, and the documentation, by one student.' },
+      hero: { eyebrow: 'The students behind it', title: 'Two students, <em>one bird.</em>', lead: 'NightJar is a project by Ondrej Špánik and Aymeric Portal at FIIT STU, 2026/27. Aymeric documented the audio hardware and the micro:bit V2 whistle detection; this site and the page below are by Ondrej.' },
       student: { eyebrow: 'Student', email: 'Email', earlier: 'Earlier work', from: 'From {portfolio} and {github}.', github: 'GitHub' },
       course: {
         eyebrow: 'The course',

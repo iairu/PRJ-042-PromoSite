@@ -8,14 +8,14 @@ export default {
 
   site: {
     name: 'LeLeK (NightJar.Gift)', // brand in titles and metadata
-    brand: 'LeLeK', // brand in the header, footer and breadcrumbs
+    brand: 'LeLeK', // brand in the footer and breadcrumbs
     brandTail: '',
-    brandSub: '(NightJar.Gift)', // small second line under the brand; hidden on phones
+    brandSub: '(NightJar.Gift)', // small second line after the brand in the footer
     tagline: 'Vták, ktorého začujete skôr, než ho uvidíte.',
     description:
       'LeLeK (NightJar.Gift) je drevený lelek lesný vyrezaný na CNC, s tlačidlom na chrbte. Podržte ho a vták zaspieva svoje nočné vrčanie; pustite a zaspí.',
     course: 'Systémové myslenie v IT a digitálna fabrikácia (STHDF)',
-    updated: '5. októbra 2026',
+    updated: '25. novembra 2026',
   },
 
   ui: {
@@ -62,7 +62,7 @@ export default {
       singing: 'Spieva…',
       preorder: 'Predobjednávka · čoskoro',
       how: 'Ako to funguje',
-      fine: 'Doska v15 je navrhnutá a simulovaná; základné diely sú objednané, diely na pískanie sú na rade. Ukážka je syntetizované vrčanie, nie konečná nahrávka.',
+      fine: 'Existuje nepájivé pole aj telo z 3D tlačiarne; rozpoznávanie pískania prechádza na micro:bit V2 a drevo sa vyrezáva v SmartLabe. Ukážka je syntetizované vrčanie, nie konečná nahrávka.',
     },
     birdAria: 'Silueta vyrezaného lelka zboku',
     model: {
@@ -101,12 +101,12 @@ export default {
 
   nav: [
     { label: 'Domov', blurb: 'Zoznámte sa s vtákom', sections: ['Hlavné body', 'Ako spieva', 'Otočte ho', 'Nepájivé pole, schéma, DPS', 'Terénne poznámky'] },
-    { label: 'Vták', blurb: 'Tvar, drevo a CNC', sections: ['Špecifikácia', 'Drôtené modely', 'Kapsy a hĺbky', 'Obrábanie', 'Drevené tlačidlo', 'Drevo'] },
-    { label: 'Elektronika', blurb: 'Doska v15', sections: ['Obvod', 'Schéma, nepájivé pole, DPS', 'Návrhové rozhodnutia', 'Pätnásť verzií dosky', 'Bezpečnosť', 'Overenie'] },
+    { label: 'Vták', blurb: 'Tvar, drevo a CNC', sections: ['Špecifikácia', '3D tlač', 'Drôtené modely', 'Kapsy a hĺbky', 'Obrábanie', 'Drevené tlačidlo', 'Drevo'] },
+    { label: 'Elektronika', blurb: 'Prototypy a doska v15', sections: ['Dva prototypy', 'Obvod (v15)', 'Schéma, nepájivé pole, DPS', 'Návrhové rozhodnutia', 'Pätnásť verzií dosky', 'Bezpečnosť', 'Overenie'] },
     { label: 'Diely', blurb: 'Čo je vo vnútri', sections: ['Súprava', 'Elektronika (objednaná)', 'Drevo a dielňa', 'Doplnky v15'] },
     { label: 'Plán', blurb: 'Kde stavba stojí', sections: ['Stav', 'Míľniky'] },
     { label: 'Predobjednávka', blurb: 'Čoskoro otvoríme', pill: 'Čoskoro', sections: ['Formulár predobjednávky', 'Otázky'] },
-    { label: 'O mne', blurb: 'Študent za projektom', sections: ['Ondrej Špánik', 'Predmet', 'Inde'] },
+    { label: 'O nás', blurb: 'Študenti za projektom', sections: ['Ondrej Špánik', 'Predmet', 'Inde'] },
   ],
 
   external: [
@@ -118,8 +118,8 @@ export default {
   highlights: [
     { title: 'Podržte, zapískajte a spieva', text: 'Tlačidlo je zapojené v napájaní z batérie. Kým ho držíte, vták počúva a na zapískanie zaspieva; po pustení nič neodoberá prúd. Nie je tu vypínač, na ktorý by ste mohli zabudnúť.' },
     { title: 'Dve polovice vyrezaného smreka', text: 'Štylizovaný lelek, dlhý 313 mm, vyrezaný na 3-osovom CNC z hobľovaného smrekového hranola ako dve zrkadlové polovice a spojený skrytými bukovými kolíkmi. Spoj sa dá na servis opatrne rozpáčiť.' },
-    { title: 'Odpovedá na zapískanie', text: 'Od verzie 9 počúva ESP32-S3 cez malý mikrofón. Keď počuje stály tón pískania, zapne zvukový modul; kým vták spieva, mikrofón je vypnutý, takže nikdy neodpovedá sám sebe.' },
-    { title: 'Nabíja sa cez chvost', text: 'LiPo článok 500 mAh s vlastnou ochrannou doskou, nabíjaný cez micro-USB kanálom pod chvostom. Nabíjací prúd je znížený na 0,36 A, aby sa drevo vo vnútri málo zahrievalo.' },
+    { title: 'Odpovedá na zapískanie', text: 'Kým držíte tlačidlo, vták počúva pískanie a odpovie naň. Vznikli na to dve zostavy: ESP32-S3 na nepájivom poli so samostatným mikrofónom a zosilňovačom a BBC micro:bit V2, ktorý má oboje na doske a je logisticky lacnejší.' },
+    { title: 'USB cez bok', text: 'Otvorom v boku tela vedie USB kábel k doske, na nabíjanie aj dáta. V zostave s ESP32-S3 sa ním cez XIAO nabíja LiPo článok 500 mAh prúdom asi 100 mA.' },
     { title: 'Diely zo slovenských a českých obchodov', text: 'Doska v15 používa len diely predávané na Slovensku a v Česku: už objednané diely v7 za 17,60 EUR a asi 20,55 EUR navyše na pískanie a nabíjanie s pripojeným článkom (vrátane dosky ESP32-S3).' },
     { title: 'Zdokumentované verejne', text: 'Pätnásť verzií dosky, každá slepá ulička aj oprava je zapísaná, spolu so schémami, zapojeniami na nepájivom poli, DPS a parametrickým CAD modelom, ktorý si môžete zostaviť zo skriptu.' },
   ],
@@ -190,20 +190,20 @@ export default {
     { date: '2. nov. 2026', title: 'Prvý zvuk z nepájivého poľa', text: 'Obvod prehrá vrčanie; zmeraný pokojový odber.' },
     { date: '16. nov. 2026', title: 'Smrekový prototyp vyrezaný', text: 'Prvý vták vyfrézovaný na CNC zo smrekového hranola a zlepený.' },
     { date: '30. nov. 2026', title: 'Prezentácia nápadu', text: 'Päť minút, začíname zvukom.' },
-    { date: '7. dec. 2026', title: 'Finálny vták', text: 'Finálny kus vyrezaný zo smreka, morený, voskovaný a lakovaný; tlačidlo sústružené alebo vytlačené na 3D tlačiarni.' },
+    { date: '7. dec. 2026', title: 'Finálny vták', text: 'Finálny kus vyrezaný zo smreka a natretý tenkovrstvovou lazúrou v odtieni orech s ľanovým olejom a voskom; tlačidlo sústružené alebo vytlačené na 3D tlačiarni.' },
     { date: '14. dec. 2026', title: 'Testovanie a dokumentácia', text: 'Otestovaný zvuk, pokojový odber, prístup k batérii a zlepený spoj; KNIFE publikovaný.' },
     { date: 'Január 2027', title: 'Záverečná prezentácia', text: 'Záverečná prezentácia a reflexia.' },
   ],
 
   status: [
-    ['Návrh elektroniky', 'Doska v15 navrhnutá a simulovaná, DPS skontrolovaná (14 zo 14 sietí); zatiaľ nepostavená'],
-    ['Diely elektroniky', 'Diely v7 objednané; doplnky v15 (ESP32-S3, mikrofón, dva MOSFETy, regulátor, dióda, poistka) sú na rade'],
-    ['3D model a puzdro', 'Nightjar v2 prispôsobený smrekovému hranolu, súbory STL, návod na stavbu, konzultácia s obsluhou CNC'],
-    ['Drevo', 'Smrekový hranol 60 x 120 mm vybraný (Hornbach); zatiaľ nekúpený'],
-    ['CNC rezanie', 'Nezačaté'],
-    ['Zloženie a povrchová úprava', 'Nezačaté'],
-    ['Drevené tlačidlo', 'Nezačaté'],
-    ['Dokumentácia', 'Stránka Docusaurus, zapísaných pätnásť verzií dosky'],
+    ['Návrh elektroniky', 'Dve zostavy: nepájivé pole s XIAO ESP32-S3 a micro:bit V2. Zvuk prechádza na micro:bit; doska v15 a jej DPS zostávajú ako dokumentácia návrhu'],
+    ['Diely elektroniky', 'Diely pre nepájivé pole a micro:bit V2 sú k dispozícii; ostatné súčiastky micro:bitu zostávajú nevyužité'],
+    ['3D model a puzdro', 'Telo vytlačené na 3D tlačiarni v 1,2-násobku skutočnej veľkosti, s otvorom USB na nabíjanie a dáta, kolíkom tlačidla napájania a otvormi pre reproduktor a mikrofón'],
+    ['Drevo', 'Vlastný smrekový hranol 60 x 120 mm z OBI alebo Hornbachu'],
+    ['CNC rezanie', 'V rukách zamestnancov SmartLabu, na CNC v SmartLabe'],
+    ['Zloženie a povrchová úprava', 'Na dreve nezačaté; plánovaná tenkovrstvová lazúra orech s ľanovým olejom a voskom'],
+    ['Drevené tlačidlo', 'Kolík tlačidla napájania vymodelovaný pre 3D tlač; drevené nezačaté'],
+    ['Dokumentácia', 'Stránka Docusaurus: pätnásť verzií dosky, nepájivé pole, 3D tlač a zostava s micro:bit V2'],
   ],
 
   versions: [
@@ -274,7 +274,7 @@ export default {
   },
 
   faq: [
-    ['Môžem si ho objednať už teraz?', 'Zatiaľ nie. Formulár na tejto stránke je vypnutý. Prvý prototyp ešte nie je vyrezaný a uvedená cena je cieľová, nie ponuka.'],
+    ['Môžem si ho už objednať?', 'Zatiaľ nie. Formulár na tejto stránke je vypnutý. Telo je vytlačené na 3D tlačiarni, drevený vták však ešte nie je hotový a uvedená cena je cieľ, nie ponuka.'],
     ['Koľko bude stáť?', 'Pracovná hypotéza z prezentácie nápadu je 89 až 129 EUR za vtáka, vyrábaného na objednávku: asi 35 EUR materiál, 17,60 EUR elektronika a približne štyri hodiny práce vrátane času na CNC. Potvrdí sa po zhotovení prototypu.'],
     ['Ako znie?', 'Ukážka na tejto stránke je syntetizované vrčanie používané počas vývoja obvodu. Konečná nahrávka ešte nebola vybraná; bude to voľne licencovaná terénna nahrávka lelka lesného.'],
     ['Ako dlho vydrží batéria?', 'Zatiaľ nezmerané. Medzi stlačeniami je zvukový modul bez napájania, takže odber tvorí ochrana článku a únik nabíjačky. Meranie na hotovom vtákovi je plánovaný test.'],
@@ -320,8 +320,8 @@ export default {
       gallery: { eyebrow: 'Nepájivé pole, schéma, DPS', title: 'Ten istý obvod, tri pohľady.', lead: 'Verzia 14 dosky, ako je nakreslená vo Fritzingu. Každý diel má simulačný model, takže zapojenie na nepájivom poli beží v simulátore vrátane zvuku reproduktora.', more: 'Pozrieť všetky verzie dosky' },
       notes: { eyebrow: 'Terénne poznámky', title: 'Vták známy podľa hlasu.' },
       timeline: {
-        eyebrow: 'Plán', title: 'Úprimný stav: navrhnuté a objednané, ešte nie vyrezané.',
-        lead: 'Splnených {done} z {total} míľnikov. Elektronika je navrhnutá a simulovaná a základné diely objednané; drevo je vybrané; prvé rezy sú na rade.',
+        eyebrow: 'Plán', title: 'Úprimný stav: vytlačené a na ceste do dreva.',
+        lead: 'Ako splnené označených {done} z {total} míľnikov. Telo je vytlačené na 3D tlačiarni, rozpoznávanie pískania prechádza na micro:bit V2 a rezanie majú na starosti zamestnanci SmartLabu.',
         more: 'Celý stav',
       },
       band: {
@@ -337,8 +337,20 @@ export default {
       title: 'Vták',
       description: 'LeLeK (NightJar.Gift): štylizovaný sediaci vták vyrezaný z dvoch smrekových polovíc na 3-osovom CNC. Rozmery, drôtené modely, kapsy, obrábanie a drevo.',
       hero: { eyebrow: 'Tvar, drevo a CNC', title: 'Sediaci lelek, <em>vyrezaný z dvoch polovíc.</em>', lead: 'Telo je štylizovaný lelek: s plochou hlavou, dlhým chvostom, sediaci nízko pozdĺž konára. Je rozdelený v strede, aby sa každá dutina dala vyrezať z deliacej roviny a potom zlepiť okolo elektroniky.' },
-      specs: { eyebrow: 'Špecifikácia', title: '313 milimetrov smreka.', lead: 'Čísla nižšie pochádzajú priamo zo skriptu, ktorý zo sochárskeho modelu robí súbory pre CNC. Zmeňte parameter alebo hranol, znova ho spustite a steny, kapsy a kontroly uloženia sa prepočítajú.', note: '<b>Prototyp.</b> Zatiaľ nič nebolo obrobené. Ide o návrhové hodnoty z modelu, nie o merania hotového vtáka.' },
+      specs: { eyebrow: 'Špecifikácia', title: '313 milimetrov smreka.', lead: 'Čísla nižšie pochádzajú priamo zo skriptu, ktorý zo sochárskeho modelu robí súbory pre CNC. Zmeňte parameter alebo hranol, znova ho spustite a steny, kapsy a kontroly uloženia sa prepočítajú.', note: '<b>Prototyp.</b> Sú to návrhové hodnoty z modelu v16FULL (ESP32-S3), nie merania hotového vtáka. Pre micro:bit V2 je samostatná verzia puzdra.' },
       model: { eyebrow: '3D model', title: 'Ťahajte ho. Otáčajte ho. Hľadajte spoj.', lead: 'Tlačidlo na chrbte je samostatný diel z tmavšieho dreva.' },
+      print: {
+        eyebrow: '3D tlač', title: 'Najprv z plastu.',
+        lead: 'Skôr než sa reže drevo, telo sa vytlačí na 3D tlačiarni, aby sa overilo, že všetko sadne a je prístupné.',
+        bullets: [
+          '<b>Otvor USB</b> v boku, na nabíjanie a dáta.',
+          '<b>Kolík tlačidla napájania</b> na chrbte: stlačte ho a vták počúva.',
+          '<b>Otvory pre reproduktor a mikrofón.</b>',
+          '<b>Macík!</b> 1,2-násobok skutočnej veľkosti.',
+        ],
+        figAlt: 'Render vtáka s ručne kreslenými poznámkami: press me pri tlačidle na chrbte, USB pri otvore v boku a symbol reproduktora pri zobáku',
+        figCap: '<b>Čo je kde.</b> Tlačidlo na chrbte, otvor USB a mriežka v boku.',
+      },
       wire: {
         eyebrow: 'Drôtené modely', title: 'Vnútro rezby.',
         lead: 'Nakreslené z rovnakých súborov STL ako 3D zobrazenie, ako zväzky prierezov. Modrá je drevo, oranžová je tlačidlo a na rozloženom pohľade je elektronika medzi polovicami.',
@@ -362,8 +374,12 @@ export default {
           '<b>Otočenie.</b> Polotovar otočte na registračné kolíky. Deliaca plocha je teraz dole a rovno na obetnej doske.',
           '<b>Vonkajšok.</b> Nahrubo s prídavkom 0,5 mm, načisto 3 mm guľovou frézou s bočným posunom 0,2 mm. Smrek sa trhá: ostré nástroje a pred posledným prechodom brúsny základ. Pri deliacej rovine nechajte mostíky alebo tenkú vrstvu.',
           '<b>Zrkadlovo, ale nie celkom.</b> Pravá polovica zrkadlí ľavú zvonku, ale kapsy má iné (reproduktor vľavo, LiPo vpravo), takže každá má vlastnú dráhu nástroja.',
-          '<b>Dokončenie.</b> Odrežte mostíky a prebrúste. Potom vonkajšok červené moridlo, vosk a lak, ako odporúča obsluha CNC, nikdy nie kapsy, otvory mriežky ani otvor mikrofónu.',
+          '<b>Dokončenie.</b> Odrežte mostíky a prebrúste. Potom na vonkajšok štetcom tenkovrstvová lazúra orech s ľanovým olejom a voskom (SlovLux), nikdy nie kapsy, otvory mriežky ani otvor mikrofónu.',
         ],
+      },
+      cnc: {
+        alt: 'Veľká CNC fréza v SmartLabe s ručne písanými poznámkami a vloženou fotkou piatich nástrojov',
+        cap: '<b>Kde sa vyrezáva.</b> Rezanie robia na tejto CNC zamestnanci SmartLabu z nášho vlastného dreva z OBI alebo Hornbachu. Vo výreze: nástroje.',
       },
       button: {
         eyebrow: 'Drevené tlačidlo', title: 'Malá kupola so štvorcovým driekom.',
@@ -380,7 +396,7 @@ export default {
       wood: {
         eyebrow: 'Drevo', title: 'Smrek z hobľovaného hranola.',
         lead: 'OBI a Hornbach predávajú v takejto hrúbke len mäkké drevo; tvrdé drevo majú iba v tenkých lištách. Hobľovaný, komorovo sušený smrek (KVH, asi 15 % vlhkosti) je na zozname vhodných drevín od obsluhy CNC a vták je navrhnutý tak, aby sa zmestil do hranola 60 x 120 mm. Ceny boli zistené 14. októbra 2026, zahŕňajú DPH a neobsahujú dopravu.',
-        note: 'KVH môže byť nastavovaný zubovitým spojom: polotovary režte z úsekov bez spoja. Hranol má toleranciu asi ±1 mm, preto ho pred nastavením CNC zmerajte.',
+        note: 'KVH môže byť nastavovaný zubovitým spojom: polotovary režte z úsekov bez spoja. Hranol má toleranciu asi ±1 mm, preto ho pred nastavením CNC zmerajte. Prezentácia z novembra 2026 uvádza aj smrekový hranol KVH NSi 60 x 120 mm od 5,05 EUR za 1 m.',
         viewAt: 'Zobraziť na {shop}',
       },
     },
@@ -389,6 +405,16 @@ export default {
       title: 'Elektronika',
       description: 'Elektronika LeLeK (NightJar.Gift), doska v15: tlačidlo v napájaní z batérie, ESP32-S3, ktoré počúva pískanie, DFPlayer Pro, malý LiPo a nabíjačka micro-USB. Schéma, nepájivé pole, DPS, návrhové rozhodnutia a overenie.',
       hero: { eyebrow: 'Doska v15', title: 'Tlačidlo, zapískanie, <em>zvukový modul.</em>', lead: 'Pätnásť verzií dosky. Tlačidlo stále odpája napájanie, takže medzi stlačeniami nič nebeží; od v9 počúva ESP32-S3 cez mikrofón a nechá vtáka zaspievať, len keď zapískate. Od v14 sa každý diel predáva na Slovensku a v Česku a v15 sa nabíja s pripojeným článkom.' },
+      prototypes: {
+        eyebrow: 'Dva prototypy', title: 'Jedno zapískanie, dva spôsoby, ako ho počuť.',
+        lead: 'Vták bol najprv zapojený zo samostatných modulov, potom zjednodušený na jednu dosku. Oba prototypy počúvajú pískanie, kým držíte tlačidlo. Vyrezaný vták ide cestou micro:bit V2.',
+        espTitle: 'Vývojová doska ESP32-S3', espText: 'Seeed XIAO ESP32-S3, mikrofón, zosilňovač, rezistory, reproduktor a tlačidlo na nepájivom poli. Rozpoznal skutočné pískanie, kým mikrofón neprestal dodávať dáta. Drahší pre logistiku.',
+        espAlt: 'Nepájivé pole s popismi: Seeed XIAO ESP32-S3, tlačidlo, zosilňovač, rezistory, mikrofón, reproduktor a náhradný okrúhly displej', espCap: '<b>Zostava ESP32-S3.</b> Náhradný displej len overuje, že napájanie je stabilné.',
+        mbTitle: 'BBC micro:bit V2', mbText: 'Mikrofón, reproduktor, tlačidlo napájania, USB a konektor batérie sú už na jednej doske, takže medzi nimi netreba nič zapájať. Ostatné súčiastky zostávajú nevyužité, a aj tak je logisticky lacnejší.',
+        mbAlt: 'micro:bit V2 držaný pred zeleným telom z 3D tlačiarne, s popismi: napájanie, batéria, USB, mikrofón a reproduktor', mbCap: '<b>Zostava micro:bit V2.</b> Jej port USB sedí oproti otvoru vo vytlačenom tele.',
+        espLink: 'Prečo sa zvuk presunul: KNIFE-019', mbLink: 'Zostava micro:bit V2: KNIFE-021',
+        note: 'Zvyšok tejto stránky dokumentuje dosku v15, starší návrh s ESP32-S3 a DFPlayer Pro.',
+      },
       circuit: {
         eyebrow: 'Obvod', title: 'Nič nie je zapnuté, kým netlačíte, a nič nespieva, kým nezapískate.',
         bullets: [
@@ -541,9 +567,9 @@ export default {
 
     roadmap: {
       title: 'Plán',
-      description: 'Kde stavba LeLeK stojí: elektronika navrhnutá a objednaná, puzdro vymodelované, drevo vybrané, nasleduje rezanie na CNC. Míľniky od októbra 2026 do januára 2027.',
-      hero: { eyebrow: 'Kde stavba stojí', title: 'Navrhnuté a objednané. <em>Ešte nie vyrezané.</em>', lead: 'Úprimný obraz, aktualizovaný podľa vývoja. Plán trvá od schválenia projektu 5. októbra 2026 po záverečnú prezentáciu v januári 2027.' },
-      status: { eyebrow: 'Stav', title: 'Čo existuje dnes.', asOf: 'K {date}.', cols: ['Oblasť', 'Stav', 'Poznámky'], note: '<b>Zatiaľ neplatí:</b> neexistuje fyzický vták. Prvý zvuk zo skutočného nepájivého poľa je cieľom míľnika M3 a nemerala sa ani výdrž batérie, ani hlasitosť.' },
+      description: 'Kde stavba LeLeK stojí: telo vytlačené na 3D tlačiarni, rozpoznávanie pískania na micro:bit V2, rezanie v SmartLabe. Míľniky od októbra 2026 do januára 2027.',
+      hero: { eyebrow: 'Kde stavba stojí', title: 'Vytlačené z plastu. <em>Ďalej z dreva.</em>', lead: 'Úprimný obraz, aktualizovaný podľa vývoja. Plán trvá od schválenia projektu 5. októbra 2026 po záverečnú prezentáciu v januári 2027.' },
+      status: { eyebrow: 'Stav', title: 'Čo existuje dnes.', asOf: 'K {date}.', cols: ['Oblasť', 'Stav', 'Poznámky'], note: '<b>Zatiaľ neplatí:</b> neexistuje hotový drevený vták, len vytlačený na 3D tlačiarni, a nemerala sa ani výdrž batérie, ani hlasitosť.' },
       milestones: { eyebrow: 'Míľniky', title: 'Osem krokov k spievajúcemu vtákovi.', docs: 'Úplná dokumentácia projektu' },
     },
 
@@ -558,7 +584,7 @@ export default {
       mailSubject: 'Záujem o predobjednávku LeLeK',
       legend: 'Podrobnosti predobjednávky',
       wood: 'Drevo',
-      beech: 'Smrek', beechNote: 'Hobľovaný hranol, červené moridlo, vosk a lak. Aktuálny návrh.',
+      beech: 'Smrek', beechNote: 'Hobľovaný hranol, lazúra orech s ľanovým olejom a voskom. Aktuálny návrh.',
       linden: 'Lipa', lindenNote: 'Mäkká a svetlá. Na požiadanie, z hrubšieho polotovaru.',
       quantity: 'Množstvo',
       engraving: 'Venovanie (gravírovanie)', optional: '(voliteľné)', engravingPh: 'napr. Pre Janu, leto 2027',
@@ -576,9 +602,9 @@ export default {
     },
 
     about: {
-      title: 'O mne',
+      title: 'O nás',
       description: 'Ondrej Špánik, študent softvérového inžinierstva na FIIT STU v Bratislave a tvorca LeLeK. Pozadie, projekty, odkazy a predmet, v rámci ktorého projekt vznikol.',
-      hero: { eyebrow: 'Študent za projektom', title: 'Jeden človek, <em>jeden vták.</em>', lead: 'LeLeK je individuálny projekt z predmetu Systémové myslenie v IT a digitálna fabrikácia na FIIT STU: všetko od CAD po drevené tlačidlo a dokumentáciu urobil jeden študent.' },
+      hero: { eyebrow: 'Študenti za projektom', title: 'Dvaja študenti, <em>jeden vták.</em>', lead: 'LeLeK je projekt, na ktorom pracujú Ondrej Špánik a Aymeric Portal na FIIT STU, 2026/27. Aymeric je autorom dokumentácie zvukového hardvéru a rozpoznávania pískania na micro:bit V2; autorom tohto webu a stránky nižšie je Ondrej.' },
       student: { eyebrow: 'Študent', email: 'E-mail', earlier: 'Doterajšia práca', from: 'Z {portfolio} a {github}.', github: 'GitHub' },
       course: {
         eyebrow: 'Predmet',

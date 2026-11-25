@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import Fig from '../../components/Fig.astro';
 import Icon from '../../components/Icon.astro';
-import { url } from '../../data/site.js';
+import { url, knifePost } from '../../data/site.js';
 import { content, getLang, href, fill } from '../../i18n/index.js';
 export const getStaticPaths = () => [{ params: { lang: 'en' } }, { params: { lang: 'sk' } }];
 const lang = getLang(Astro);
@@ -13,6 +13,25 @@ const t = c.p.electronics;
 ---
 <Base title={t.title} description={t.description}>
   <PageHero crumb={t.title} eyebrow={t.hero.eyebrow} title={t.hero.title} lead={t.hero.lead} />
+
+  <section class="block tint" id="prototypes">
+    <div class="wrap">
+      <div class="sec-head reveal"><p class="eyebrow">{t.prototypes.eyebrow}</p><h2>{t.prototypes.title}</h2><p>{t.prototypes.lead}</p></div>
+      <div class="grid g2" style="align-items:start">
+        <div>
+          <Fig src="proto-esp32" w={1725} h={1296} alt={t.prototypes.espAlt} caption={t.prototypes.espCap} />
+          <h3>{t.prototypes.espTitle}</h3><p>{t.prototypes.espText}</p>
+          <p><a href={knifePost(lang, 19)} target="_blank" rel="noopener noreferrer">{t.prototypes.espLink} <Icon name="ext" size={14} /></a></p>
+        </div>
+        <div>
+          <Fig src="proto-microbit" w={1684} h={1122} alt={t.prototypes.mbAlt} caption={t.prototypes.mbCap} />
+          <h3>{t.prototypes.mbTitle}</h3><p>{t.prototypes.mbText}</p>
+          <p><a href={knifePost(lang, 21)} target="_blank" rel="noopener noreferrer">{t.prototypes.mbLink} <Icon name="ext" size={14} /></a></p>
+        </div>
+      </div>
+      <p class="note reveal">{t.prototypes.note}</p>
+    </div>
+  </section>
 
   <section class="block" id="circuit">
     <div class="wrap split" style="align-items:start">

@@ -37,6 +37,18 @@ const t = c.p.bird;
     </div>
   </section>
 
+  <section class="block tint" id="print">
+    <div class="wrap split" style="align-items:start">
+      <div class="reveal">
+        <p class="eyebrow">{t.print.eyebrow}</p>
+        <h2>{t.print.title}</h2>
+        <p>{t.print.lead}</p>
+        <div class="prose"><ul>{t.print.bullets.map((x) => <li set:html={x} />)}</ul></div>
+      </div>
+      <Fig src="print-features" w={1544} h={677} alt={t.print.figAlt} caption={t.print.figCap} />
+    </div>
+  </section>
+
   <section class="block" id="wireframes">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -84,6 +96,9 @@ const t = c.p.bird;
       <ol class="steps prose reveal">
         {t.machining.steps.map((x) => <li set:html={x} />)}
       </ol>
+    </div>
+    <div class="wrap" style="margin-top:clamp(1.4rem,3vw,2.4rem)">
+      <Fig src="cnc-smartlab" w={1769} h={1296} alt={t.cnc.alt} caption={t.cnc.cap} />
     </div>
   </section>
 

@@ -7,6 +7,7 @@
 //   - ST-017-MOTHERBOARD/enclosure/NIGHTJAR_V2_GUIDE.md  (Nightjar v2 model, wood, pockets, machining)
 //   - ST-017-MOTHERBOARD/enclosure/stl_v2/               (STL files; public/models and the wireframes come from them)
 //   - ST-017-OndrejSpanik/content/docs/sk/sthdf/...      (project summary, pitch, milestones)
+//   - nightjar-pres.pdf (November 2026 presentation, not in the repo) and KNIFE-018 to 021: prototypes, 3D print, carving, finish
 //   - github.com/iairu, iairu.com                         (student info)
 
 export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -37,8 +38,8 @@ export const links = {
 // Header + footer menu: path and section ids. Labels come from the language file (same order).
 export const nav = [
   { href: '/', sections: ['highlights', 'how', 'model', 'gallery', 'field-notes'] },
-  { href: '/bird/', sections: ['specs', 'wireframes', 'pockets', 'machining', 'button', 'wood'] },
-  { href: '/electronics/', sections: ['circuit', 'views', 'choices', 'evolution', 'safety', 'verification'] },
+  { href: '/bird/', sections: ['specs', 'print', 'wireframes', 'pockets', 'machining', 'button', 'wood'] },
+  { href: '/electronics/', sections: ['prototypes', 'circuit', 'views', 'choices', 'evolution', 'safety', 'verification'] },
   { href: '/parts/', sections: ['kit', 'electronics-parts', 'wood-parts', 'v14-parts'] },
   { href: '/roadmap/', sections: ['status', 'milestones'] },
   { href: '/preorder/', pill: true, sections: ['form', 'faq'] },
@@ -136,7 +137,7 @@ export const milestones = [
 ];
 
 // done | wip | todo, in the same order as the rows in the language file
-export const statusStates = ['done', 'done', 'wip', 'wip', 'todo', 'todo', 'todo', 'done'];
+export const statusStates = ['wip', 'wip', 'done', 'wip', 'wip', 'todo', 'todo', 'done'];
 
 // Board evolution. Images live in /img.
 export const versions = [
