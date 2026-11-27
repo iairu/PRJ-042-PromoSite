@@ -2,7 +2,7 @@
 import Bird from './Bird.astro';
 import Icon from './Icon.astro';
 import { url } from '../data/site.js';
-import { content, getLang, href } from '../i18n/index.js';
+import { content, getLang } from '../i18n/index.js';
 const lang = getLang(Astro);
 const { site, ui } = content(lang);
 const h = ui.hero;
@@ -30,10 +30,9 @@ const stars = Array.from({ length: 70 }, () => ({ x: rnd() * 100, y: rnd() * 62,
         <button class="btn primary sing" type="button" id="sing" aria-pressed="false" data-hold={h.hold} data-singing={h.singing}>
           <Icon name="sound" size={18} /> <span class="lbl">{h.hold}</span>
         </button>
-        <a class="btn ghost" href={href(lang, '/preorder/')}>{h.preorder}</a>
-        <a class="btn ghost" href={href(lang, '/electronics/')}>{h.how} <Icon name="arrow" size={16} /></a>
+        <a class="btn ghost" href="#order">{h.order}</a>
+        <a class="btn ghost" href="#how">{h.how} <Icon name="arrow" size={16} /></a>
       </div>
-      <p class="fine"><span class="pill wip">{ui.pillWip}</span> {h.fine}</p>
     </div>
   </div>
 

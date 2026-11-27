@@ -27,10 +27,6 @@ function walk(a, b, path) {
   }
 }
 walk(en, sk, 'dict');
-// values that must be identical in both languages (single source of truth is site.js, these are echoes)
-const same = (label, x, y) => { if (x !== y) problems.push(`${label}: en "${x}" vs sk "${y}"`); };
-same('student.name', en.student.name, sk.student.name);
-same('pocket count', String(en.pockets.length), String(sk.pockets.length));
 
 if (problems.length) {
   console.error('i18n check failed:\n - ' + problems.join('\n - '));

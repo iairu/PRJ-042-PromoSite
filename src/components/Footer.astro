@@ -3,7 +3,7 @@ import Icon from './Icon.astro';
 import { url } from '../data/site.js';
 import { content, getLang, href, fill } from '../i18n/index.js';
 const lang = getLang(Astro);
-const { nav, external, links, site, ui } = content(lang);
+const { nav, links, site, ui } = content(lang);
 const f = ui.footer;
 const year = new Date().getFullYear();
 ---
@@ -11,42 +11,28 @@ const year = new Date().getFullYear();
   <div class="wrap">
     <div class="top">
       <div class="about">
-        <a class="brand" href={href(lang)}><img src={url('/favicon.svg')} alt="" width="34" height="34" /><span>{site.brand}{site.brandTail && <span class="sub">{site.brandTail}</span>}{site.brandSub && <span class="sub"> {site.brandSub}</span>}</span></a>
+        <a class="brand" href={href(lang)}><img src={url('/favicon.svg')} alt="" width="34" height="34" /><span>{site.brand}{site.brandTail && <span class="sub">{site.brandTail}</span>}</span></a>
         <p class="latin">{site.latin}</p>
         <p class="small">{f.about}</p>
-        <p class="small"><span class="pill wip">{ui.pillWip}</span></p>
-        <button class="btn ghost" type="button" data-search-open><Icon name="search" size={16} /> {f.search} <span class="kbd">Ctrl K</span></button>
       </div>
-      <nav class="map" aria-label="Sitemap">
-        <h2 class="sr-only">{ui.sitemap}</h2>
-        <div class="cols">
-          {nav.map((n) => (
-            <div class="col">
-              <h3><a href={href(lang, n.href)}>{n.label}</a></h3>
-              <ul>
-                {n.sections.map(([id, label]) => (
-                  <li><a href={href(lang, n.href) + '#' + id}>{label}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div class="col">
-            <h3>{ui.external}</h3>
-            <ul>
-              {external.map((e) => (
-                <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.label} <Icon name="ext" size={12} /></a></li>
-              ))}
-              <li><a href={links.github} target="_blank" rel="noopener noreferrer">{f.github} <Icon name="ext" size={12} /></a></li>
-              <li><a href={links.portfolio} target="_blank" rel="noopener noreferrer">iairu.com <Icon name="ext" size={12} /></a></li>
-              <li><a href={`mailto:${links.email}`}>{links.email}</a></li>
-            </ul>
-          </div>
+      <div class="cols">
+        <nav class="col" aria-label={ui.mainNav}>
+          <ul>
+            {nav.map((n) => <li><a href={href(lang, `/#${n.id}`)}>{n.label}</a></li>)}
+          </ul>
+        </nav>
+        <div class="col">
+          <h3>{f.orders}</h3>
+          <ul>
+            <li><a href={`mailto:${links.email}`}>{links.email}</a></li>
+            <li><a href={links.docs} target="_blank" rel="noopener noreferrer">{f.docs} <Icon name="ext" size={12} /></a></li>
+          </ul>
         </div>
-      </nav>
+      </div>
     </div>
     <div class="bottom">
       <p>{fill(f.legal, { year, id: site.studentId, course: site.course, academicYear: site.year, licence: site.licence })}</p>
-      <p>{fill(f.disclaimer, { updated: site.updated })}</p>
+      <p>{fill(f.updated, { updated: site.updated })}</p>
       <p><a href="#top">{f.top}</a></p>
     </div>
   </div>
@@ -54,7 +40,7 @@ const year = new Date().getFullYear();
 
 <style>
   .ftr { background: var(--dusk); color: #cfc6b2; padding: clamp(3rem, 6vw, 5rem) 0 2rem; border-top: 1px solid #2a2f45; font-size: .95rem; }
-  .top { display: grid; gap: 3rem; grid-template-columns: minmax(240px, 1fr) 3fr; }
+  .top { display: grid; gap: 3rem; grid-template-columns: minmax(240px, 1.4fr) 2fr; }
   .brand { display: inline-flex; align-items: center; gap: .7rem; color: #f1e8d4; text-decoration: none; font: 600 1.3rem var(--font-display); letter-spacing: .06em; margin-bottom: .3rem; }
   .brand .sub { font-weight: 400; opacity: .8; }
   .brand img { border-radius: 8px; flex: none; }
@@ -69,7 +55,5 @@ const year = new Date().getFullYear();
   .bottom { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #2a2f45; display: flex; flex-wrap: wrap; gap: .4rem 2rem; justify-content: space-between; font: 400 .78rem/1.6 var(--font-mono); color: #9d9684; }
   .bottom p { margin: 0; max-width: 62ch; }
   .bottom a { color: #d7b98d; }
-  .ghost { --fg: #f1e8d4; --bd: #4a5273; margin-top: .6rem; }
-  .ghost :global(.kbd) { background: transparent; color: #cfc6b2; border-color: #4a5273; }
   @media (max-width: 900px) { .top { grid-template-columns: 1fr; } }
 </style>

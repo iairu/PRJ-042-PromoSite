@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Search from '../components/Search.astro';
 import { url } from '../data/site.js';
 import { content, getLang, langs, switchPath } from '../i18n/index.js';
 
@@ -41,7 +40,6 @@ const og = Astro.site ? new URL(url(image), Astro.site).href : url(image);
       (function () {
         var d = document.documentElement;
         d.classList.add('js');
-        try { if (localStorage.getItem('lelek-banner') === 'knifes-1') d.classList.add('no-banner'); } catch (e) {}
         var t = null;
         try { t = localStorage.getItem('lelek-theme'); } catch (e) {}
         if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -52,11 +50,10 @@ const og = Astro.site ? new URL(url(image), Astro.site).href : url(image);
   <body>
     <a class="skip" href="#main">{ui.skip}</a>
     <Header langHome={!alternates} />
-    <main id="main" data-pagefind-body={noindex ? undefined : true} data-pagefind-meta={`page:${title}`}>
+    <main id="main">
       <slot />
     </main>
     <Footer />
-    <Search />
     <script>
       // theme toggle (icon and label show the mode you will switch to)
       const tbtn = document.getElementById('theme-toggle');
@@ -86,11 +83,6 @@ const og = Astro.site ? new URL(url(image), Astro.site).href : url(image);
         try { localStorage.setItem('lelek-lang', a.dataset.langSwitch!); } catch {}
         a.href = a.href.split('#')[0] + location.hash;
       }));
-      // top banner dismissal (remembered per banner id)
-      document.getElementById('banner-close')?.addEventListener('click', () => {
-        document.documentElement.classList.add('no-banner');
-        try { localStorage.setItem('lelek-banner', 'knifes-1'); } catch {}
-      });
       // mobile menu
       const btn = document.querySelector('.menu-btn') as HTMLButtonElement | null;
       const nav = document.getElementById('primary-nav');

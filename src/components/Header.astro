@@ -1,16 +1,12 @@
 ---
 import Icon from './Icon.astro';
-import Banner from './Banner.astro';
 import { url } from '../data/site.js';
 import { content, getLang, href, langs, switchPath } from '../i18n/index.js';
 const { langHome = false } = Astro.props; // pages without a counterpart (404): the switcher goes to the other home page
 const lang = getLang(Astro);
 const { nav, ui } = content(lang);
-const path = Astro.url.pathname.replace(url('/').replace(/\/$/, ''), '').replace(`/${lang}`, '') || '/';
-const active = (h) => (h === '/' ? path === '/' : path.startsWith(h));
 ---
 <header class="hdr" id="top">
-  <Banner />
   <div class="wrap bar">
     <a class="brand" href={href(lang)} aria-label={ui.homeAria}>
       <img class="logo logo-light" src={url('/img/logo/nightjar-black.svg')} alt="" width="232" height="67" />
@@ -20,18 +16,12 @@ const active = (h) => (h === '/' ? path === '/' : path.startsWith(h));
       <ul>
         {nav.map((n) => (
           <li>
-            <a href={href(lang, n.href)} aria-current={active(n.href) ? 'page' : undefined} class:list={[{ cta: n.pill }]}>
-              {n.label}{n.pill && <span class="pill soon">{n.pill}</span>}
-            </a>
+            <a href={href(lang, `/#${n.id}`)} class:list={[{ cta: n.pill }]}>{n.label}</a>
           </li>
         ))}
       </ul>
     </nav>
     <div class="tools">
-      <button class="icon-btn search-open" type="button" aria-label={ui.searchOpen} data-search-open>
-        <Icon name="search" size={20} />
-        <span class="hint"><span class="kbd">Ctrl</span><span class="kbd">K</span></span>
-      </button>
       <div class="lang" role="group" aria-label={ui.language}>
         {langs.map((l) => l === lang
           ? <span class="cur" lang={l} aria-current="true" title={ui.langName[l]}>{l.toUpperCase()}</span>
@@ -59,14 +49,11 @@ const active = (h) => (h === '/' ? path === '/' : path.startsWith(h));
   nav a { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .8rem; border-radius: 999px; color: #d9d0bb; text-decoration: none; font: 500 .8rem var(--font-mono); letter-spacing: .04em; white-space: nowrap; }
   nav a:hover { color: #fff; background: rgb(241 232 212 / .09); }
   nav a[aria-current='page'] { color: #fff; background: rgb(241 232 212 / .14); }
-  nav .pill { font-size: .58rem; padding: .35em .6em; color: #f0a070; }
+  nav a.cta { color: #f0a070; box-shadow: 0 0 0 1px currentColor inset; }
+  nav a.cta:hover { color: #fff; }
   .tools { display: flex; align-items: center; gap: .3rem; }
   .icon-btn { display: inline-flex; align-items: center; gap: .55rem; background: none; border: 1px solid transparent; color: #e8dfca; height: 40px; min-width: 40px; justify-content: center; padding: 0 .6rem; border-radius: 10px; cursor: pointer; }
   .icon-btn:hover { background: rgb(241 232 212 / .1); }
-  .search-open { border-color: rgb(241 232 212 / .2); padding: 0 .7rem; }
-  .hint { display: inline-flex; gap: .2rem; }
-  @media (max-width: 1360px) { .hint { display: none; } }
-  .hint :global(.kbd) { background: transparent; color: #cfc6b2; border-color: rgb(241 232 212 / .3); }
   :global(:root[data-theme='dark']) .ic-moon, :global(:root:not([data-theme='dark'])) .ic-sun { display: none; }
   .lang { display: inline-flex; padding: 3px; border: 1px solid rgb(241 232 212 / .2); border-radius: 999px; margin-inline: .2rem; }
   .lang a, .lang .cur { font: 500 .7rem/1 var(--font-mono); letter-spacing: .06em; padding: .55em .7em; border-radius: 999px; text-decoration: none; min-width: 2.3rem; text-align: center; }
@@ -74,7 +61,7 @@ const active = (h) => (h === '/' ? path === '/' : path.startsWith(h));
   .lang a:hover { color: #fff; background: rgb(241 232 212 / .12); }
   .lang .cur { background: rgb(241 232 212 / .2); color: #fff; }
   .menu-btn, .ic-close { display: none; }
-  @media (max-width: 1180px) {
+  @media (max-width: 1020px) {
     .menu-btn { display: inline-flex; }
     .menu-btn[aria-expanded='true'] .ic-open { display: none; }
     .menu-btn[aria-expanded='true'] .ic-close { display: inline; }
